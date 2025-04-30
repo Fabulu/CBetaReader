@@ -1,6 +1,6 @@
-# CBETA Zen Reader
+# CBETA Reader
 
-**CBETA Zen Reader** is a free, offline desktop application for browsing, reading, and translating Chinese Buddhist texts from the [CBETA XML-P5](https://www.cbeta.org/) corpus.
+**CBETA Reader** is a free, offline desktop application for browsing, reading, and translating Chinese Buddhist texts from the [CBETA XML-P5](https://www.cbeta.org/) corpus.
 
 This is a minimal and fast reader designed specifically for Zen study and translation work.
 
