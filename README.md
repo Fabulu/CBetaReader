@@ -20,7 +20,7 @@ This is a minimal and fast reader designed specifically for Zen study and transl
 
 ## 📸 Screenshots
 
-![screenshot](docs/screenshot.png) <!-- Add one later -->
+![screenshot](Screenshots/manual.png) <!-- Add one later -->
 
 ---
 
