@@ -1,0 +1,111 @@
+﻿<Window x:Class="CbetaZenReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CBETA Zen Reader" Height="700" Width="1000">
+    <Grid Name="MainGrid">
+        <!-- Folder picker view -->
+        <StackPanel Name="FolderPickerPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Select CBETA XML-P5 Folder:" Margin="0,0,0,10" FontSize="16"/>
+            <Button Content="Browse..." Click="BrowseButton_Click" Width="120"/>
+        </StackPanel>
+
+        <!-- Main content view -->
+        <Grid Name="MainViewerPanel" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <!-- Canon tree -->
+                <ColumnDefinition Width="250"/>
+                <!-- TOC -->
+                <ColumnDefinition Width="*"/>
+                <!-- Main content (Text + Translation) -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Canon Tree -->
+            <TreeView Name="CanonTreeView" 
+                      Grid.Column="0"
+                      Margin="5" 
+                      SelectedItemChanged="CanonTreeView_SelectedItemChanged"/>
+
+            <!-- TOC -->
+            <ListBox Name="TocListBox"
+                     Grid.Column="1"
+                     Margin="5"
+                     FontSize="13"
+                     SelectionChanged="TocListBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="2">
+                            <TextBlock Text="{Binding Title}"
+                                       TextWrapping="Wrap"
+                                       TextTrimming="CharacterEllipsis"
+                                       Tag="{Binding}"
+                                       ContextMenuOpening="TocItem_ContextMenuOpening"
+                                       MouseRightButtonUp="TocItem_RightClick" />
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Text and Translation Panels -->
+            <Grid Grid.Column="2" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Content="Translate Selection" 
+                        Click="TranslateButton_Click" 
+                        Height="30" 
+                        HorizontalAlignment="Right" 
+                        Margin="0,0,0,5"/>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Original Text -->
+                    <ScrollViewer Grid.Column="0" Margin="0,0,5,0"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Auto">
+                        <TextBox Name="TextDisplay"
+                                 FontSize="14"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 AcceptsTab="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Disabled"
+                                 IsReadOnly="True"
+                                 IsReadOnlyCaretVisible="True"/>
+                    </ScrollViewer>
+
+                    <!-- Translation -->
+
+                    <TextBlock Name="LoadingIndicator"
+                                   Text="⏳ Translating..."
+                                   FontStyle="Italic"
+                                   Foreground="Gray"
+                                   Visibility="Collapsed"
+                                   Margin="0,0,0,5"
+                                   HorizontalAlignment="Left"/>
+
+
+                    <ScrollViewer Grid.Column="1"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Auto">
+                        <TextBox Name="TranslationDisplay"
+                                 FontSize="14"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 AcceptsTab="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Disabled"
+                                 IsReadOnly="True"
+                                 IsReadOnlyCaretVisible="True"/>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

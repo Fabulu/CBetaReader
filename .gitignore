@@ -1,0 +1,11 @@
+# Ignore Python virtual env, packages, and heavy files
+CbetaZenReader/Python/Lib/
+CbetaZenReader/Python/Scripts/
+CbetaZenReader/Python/__pycache__/
+CbetaZenReader/Python/translate-zt_en-*.argosmodel
+CbetaZenReader/Python/*.dll
+CbetaZenReader/Python/*.lib
+CbetaZenReader/Python/*.pyd
+
+# Optional: ignore setup output
+CbetaZenReader/Python/get-pip.py
