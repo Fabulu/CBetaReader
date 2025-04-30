@@ -31,6 +31,16 @@ This is a minimal and fast reader designed specifically for Zen study and transl
 
 ---
 
+## 🐍 The Python in the room
+
+If you want to compile and run this yourself, you need a Python install with the language model for the translation. That's the bad news. I included a batch file in the project directory called setup_python.bat. It probably won't work, but if you open it you'll see what you need to do if you tinker some.
+
+The good news is that this is modular in the project, so it should be easy to replace with something else, like an API call if you want to go that route. Of course, APIs usually cost money.
+
+But maybe... someday...
+
+We can dream.
+
 ## 🚀 Getting Started
 
 1. Download the latest release from [Releases](https://github.com/your-username/cbeta-zen-reader/releases)
